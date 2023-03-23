@@ -22,7 +22,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         },
       })
     }
-  }, [findAccessToken(), findRefreshToken()])
+  }, [updateToken])
 
   const value = {
     isToken,
