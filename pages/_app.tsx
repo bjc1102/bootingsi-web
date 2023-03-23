@@ -7,8 +7,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 
 import { client } from 'lib/react-query'
 
-import Header from '@/components/Layout/Header'
-import Footer from '@/components/Layout/Footer'
+import Header from '@/components/Header'
 import AuthProvider from '@/hooks/Auth/AuthProvider'
 
 import '@/styles/global.css'
