@@ -15,9 +15,9 @@ export const findRefreshToken = () => {
 }
 
 export const removeAccessToken = () => {
-  return deleteCookie(token)
+  deleteCookie(token)
 }
 
 export const removeRefreshToken = () => {
-  return deleteCookie(refreshToken)
+  deleteCookie(refreshToken)
 }

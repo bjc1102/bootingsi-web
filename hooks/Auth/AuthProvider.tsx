@@ -12,17 +12,13 @@ export function useAuth() {
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isToken, setIsToken] = React.useState(false)
-  const { mutate: updateToken } = useUpdateToken()
+  const { mutate: updateToken } = useUpdateToken(() => setIsToken(true))
 
   React.useEffect(() => {
-    if (!!findAccessToken()) return setIsToken(true)
-    if (!!findRefreshToken()) {
-      updateToken(void 1, {
-        onSuccess() {
-          setIsToken(true)
-        },
-      })
-    }
+    const accessToken = findAccessToken()
+    if (accessToken) return setIsToken(true)
+    const refreshToken = findRefreshToken()
+    if (refreshToken) return updateToken()
   }, [updateToken])
 
   const value = {
