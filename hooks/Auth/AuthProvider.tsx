@@ -3,6 +3,7 @@ import type { AuthContextType } from '@/types/auth'
 import { findAccessToken, findRefreshToken } from '@/utils/token'
 import useUpdateToken from './queries/useUpdateToken'
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const AuthContext = React.createContext<AuthContextType>(null!)
 
 export function useAuth() {
