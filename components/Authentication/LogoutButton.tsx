@@ -1,11 +1,13 @@
 import React from 'react'
 import { removeAccessToken, removeRefreshToken } from '@/utils/token'
+import { useAuth } from '@/hooks/Auth/AuthProvider'
 
 const LogoutButton = () => {
+  const auth = useAuth()
   const handleLogout = () => {
     removeAccessToken()
     removeRefreshToken()
-    // location.replace('/')
+    auth.handleTokenChange(false)
   }
   return (
     <button
