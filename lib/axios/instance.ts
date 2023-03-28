@@ -1,8 +1,7 @@
 import { ClipType } from '@/types/clip'
 import { parsingAuthorization } from '@/utils/token'
-import axios from 'axios'
 import { getCookie } from 'cookies-next'
-import instance, { baseURL } from '.'
+import { instance, auth, baseURL } from '.'
 
 const authAPI = {
   login: async () => {
@@ -11,14 +10,13 @@ const authAPI = {
   setRefreshToken: async (): Promise<boolean> => {
     const refreshToken = getCookie('refresh-token')
 
-    const result = await axios.post(
+    const result = await auth.post(
       `${baseURL}auth/refresh`,
       {},
       {
         headers: {
           Authorization: parsingAuthorization(refreshToken),
         },
-        withCredentials: true,
       }
     )
     return result.status === 201

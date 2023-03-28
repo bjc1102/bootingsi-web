@@ -8,13 +8,17 @@ export const baseURL =
     ? 'http://localhost:5000/api/'
     : 'https://clip-planet.site/api/'
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: baseURL,
   timeout: 5000,
   withCredentials: true,
 })
 
-export default instance
+export const auth = axios.create({
+  baseURL: baseURL,
+  timeout: 5000,
+  withCredentials: true,
+})
 
 interface HeaderType extends AxiosRequestHeaders {
   ['Content-Type']: string

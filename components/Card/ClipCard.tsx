@@ -34,7 +34,8 @@ const ClipCard = ({ clip }: ClipCardProps) => {
       <img
         src={clip.favicon}
         alt="site-image"
-        className="w-5 h-5 bg-white object-cover rounded-full overflow-clip"
+        className="w-5 h-5 border-black object-cover rounded-full overflow-clip"
+        style={{ fill: 'black' }}
       />
     )
   }
@@ -63,7 +64,6 @@ const ClipCard = ({ clip }: ClipCardProps) => {
               <PlanetIcon />
             </div>
           )}
-          {/* 카드 메뉴바는 현재 필요없는 기능으로 생각해서 임시 삭제 */}
         </div>
         <div className="flex gap-2 items-center pt-3">
           {checkFavicon(clip.favicon)}

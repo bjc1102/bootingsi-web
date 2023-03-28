@@ -9,7 +9,7 @@ const Header = () => {
   const handleLogout = () => {
     removeAccessToken()
     removeRefreshToken()
-    location.replace('/')
+    // location.replace('/')
   }
 
   return (
