@@ -15,9 +15,15 @@ export const findRefreshToken = () => {
 }
 
 export const removeAccessToken = () => {
-  deleteCookie(token)
+  if (findAccessToken()) {
+    const pastDate = new Date(0)
+    deleteCookie(token, { expires: pastDate })
+  }
 }
 
 export const removeRefreshToken = () => {
-  deleteCookie(refreshToken)
+  if (findRefreshToken()) {
+    const pastDate = new Date(0)
+    deleteCookie(refreshToken, { expires: pastDate })
+  }
 }
