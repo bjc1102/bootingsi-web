@@ -2,15 +2,10 @@ import React from 'react'
 import Logo from '@/components/Header/Logo'
 import CreateClipForm from '@/components/Header/CreateClipForm'
 import { useAuth } from '@/hooks/Auth/AuthProvider'
-import { removeAccessToken, removeRefreshToken } from '@/utils/token'
+import LogoutButton from '../Authentication/LogoutButton'
 
 const Header = () => {
   const auth = useAuth()
-  const handleLogout = () => {
-    removeAccessToken()
-    removeRefreshToken()
-    // location.replace('/')
-  }
 
   return (
     <nav className="w-full border-gray-200 py-3 bg-gray-800">
@@ -19,14 +14,7 @@ const Header = () => {
         {auth.isToken && <CreateClipForm />}
         <div className="flex gap-4 items-center">
           <span className="text-lg font-semibold">Docs</span>
-          {auth.isToken && (
-            <span
-              className="cursor-pointer text-lg font-semibold"
-              onClick={handleLogout}
-            >
-              Logout
-            </span>
-          )}
+          {auth.isToken && <LogoutButton />}
         </div>
       </div>
     </nav>

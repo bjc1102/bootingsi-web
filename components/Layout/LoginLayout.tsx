@@ -1,6 +1,6 @@
 import PlanetIcon from 'public/assets/PlanetIcon'
 import React from 'react'
-import LoginButton from '../Login/LoginButton'
+import LoginButton from '../Authentication/LoginButton'
 
 const LoginLayout = () => {
   return (
