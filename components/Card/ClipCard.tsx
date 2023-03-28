@@ -1,8 +1,6 @@
 import React from 'react'
-import { AnimatePresence } from 'framer-motion'
 
 import ClipDeleteButton from '@/components/Card/ClipDeleteButton'
-import CardMenuBar from '@/components/Card/CardMenuBar'
 import sliceString from '@/utils/sliceString'
 import { ClipType } from '@/types/clip'
 import PlanetIcon from 'public/assets/PlanetIcon'
