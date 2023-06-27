@@ -1,24 +1,113 @@
-# startup-page(시작 페이지 관리)
+# Tech Stack
 
-## 사용 방법 (윈도우 기준)
+- NextJS
+- Typescript
+- Tailwind
+- React-Query
 
-### Project link : [startup-page](https://startup-page-eta.vercel.app/)
+# Summary
 
-### **1.1 크롬 설정 -  도구 더보기 -  탭 - 바로가기 만들기를 통해 바탕화면의 새로운 페이지를 만들어줍니다.**
+- Auth HOC 구현
+- 추상화 및 코드 리팩토링
+- React-Query를 통한 폴더 구조 수정 및 서버 상태 관리
 
-![설정하기 이미지](./public/README/use.PNG)
+# Command
 
+```
+yarn install && yarn dev
+```
 
-### **1.2 `window` + `r` 키를 눌러 실행창을 엽니다**
-### **1.3 `shell:startup`을 입력하고 확인을 눌러 폴더를 엽니다**
+# 폴더 구조
 
+폴더구조는 [리액트 공식문서](https://legacy.reactjs.org/docs/faq-structure.html)와 [React-Query 개발자의 문서](https://tkdodo.eu/blog/effective-react-query-keys#colocate)를 참조하였습니다.
 
-![설정하기2 이미지](./public/README/use2.PNG)
-
-
-### **1.4 이전에 만들어놨던 바로가기 페이지를 폴더 안에 옮겨넣습니다**
-
-
-![설정하기3 이미지](./public/README/use3.PNG)
-
-
+```
+.
+├── components
+│   ├── Authentication
+│   │   ├── LoginButton.tsx
+│   │   └── LogoutButton.tsx
+│   ├── Card
+│   │   ├── CardMenuBar.tsx
+│   │   ├── ClipCard.tsx
+│   │   ├── ClipCardList.tsx
+│   │   ├── ClipDeleteButton.tsx
+│   │   ├── ClipListTab.tsx
+│   │   └── queries
+│   │       ├── useDeleteClip.tsx
+│   │       ├── useGetClipList.tsx
+│   │       └── useUpdateFavoriteClip.tsx
+│   ├── Header
+│   │   ├── CreateClipForm.tsx
+│   │   ├── Logo.tsx
+│   │   ├── index.tsx
+│   │   └── queries
+│   │       └── useSetClip.tsx
+│   ├── Layout
+│   │   ├── HomeLayout.tsx
+│   │   ├── LoginLayout.tsx
+│   │   └── SpinnerLayout.tsx
+│   └── common
+│       ├── Button.tsx
+│       ├── ConfirmModal.tsx
+│       └── Input.tsx
+├── constant
+│   ├── const.ts
+│   └── query.key.ts
+├── hooks
+│   ├── Auth
+│   │   ├── AuthProvider.tsx
+│   │   ├── queries
+│   │   │   └── useUpdateToken.tsx
+│   │   └── withAuth.tsx
+│   ├── useForm.tsx
+│   ├── useModal.tsx
+│   └── useOutsideClick.tsx
+├── lib
+│   ├── axios
+│   │   ├── index.ts
+│   │   └── instance.ts
+│   └── react-query.ts
+├── next-env.d.ts
+├── next.config.js
+├── package.json
+├── pages
+│   ├── _app.tsx
+│   └── index.tsx
+├── postcss.config.js
+├── public
+│   ├── README
+│   │   ├── use.PNG
+│   │   ├── use2.PNG
+│   │   └── use3.PNG
+│   ├── assets
+│   │   ├── \010SpinnerIcon.tsx
+│   │   ├── AlertIcon.tsx
+│   │   ├── CloseIcon.tsx
+│   │   ├── DirectoryIcon.tsx
+│   │   ├── GoogleIcon.tsx
+│   │   ├── LoadingIcon.tsx
+│   │   ├── PlanetIcon.tsx
+│   │   ├── PlusIcon.tsx
+│   │   ├── SearchIcon.tsx
+│   │   └── StarIcon.tsx
+│   ├── icon16.png
+│   └── vercel.svg
+├── styles
+│   └── global.css
+├── tsconfig.json
+├── types
+│   ├── auth.ts
+│   ├── clip.ts
+│   ├── common.ts
+│   ├── error.ts
+│   └── utils.ts
+├── utils
+│   ├── animation.ts
+│   ├── sliceString.ts
+│   ├── toast.ts
+│   ├── token.ts
+│   ├── validate.ts
+│   └── window.ts
+└── yarn.lock
+```
